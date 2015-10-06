@@ -409,13 +409,13 @@ var handleButton = function handleButton(event, params, modal) {
       var clickedOnModalChild = _hasClass$isDescendant.isDescendant(modal, target);
 
       // Ignore click outside if allowOutsideClick is false
-      if (!clickedOnModal && !clickedOnModalChild && modalIsVisible && !params.allowOutsideClick) {
+      if (!clickedOnModal && !clickedOnModalChild && !params.allowOutsideClick) {
         break;
       }
 
-      if (targetedConfirm && doneFunctionExists && modalIsVisible) {
+      if (targetedConfirm && doneFunctionExists) {
         handleConfirm(modal, params);
-      } else if (doneFunctionExists && modalIsVisible || targetedOverlay) {
+      } else if (doneFunctionExists || targetedOverlay) {
         handleCancel(modal, params);
       } else if (_hasClass$isDescendant.isDescendant(modal, target) && target.tagName === 'BUTTON') {
         sweetAlert.close();
